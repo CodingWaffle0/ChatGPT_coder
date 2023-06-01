@@ -1,0 +1,150 @@
+here are is syntax for a pseudo code language NOT turn this into code:
+// Comments start with double slashes
+
+// Variable declaration and assignment
+let mutable x: int = 42; // mutable integer variable x with initial value of 42
+let y: float = 3.14; // immutable float variable y with initial value of 3.14
+let b: bool = true; // boolean variable with initial value of true
+let s: str = "hello"; // immutable string variable
+let arr: [int; 3] = [1, 2, 3]; // fixed-size array with three integers
+let vec: Vec<int> = vec![1, 2, 3]; // dynamic array or vector with three integers
+let tup: (int, str) = (1, "hello"); // tuple with an integer and a string
+let c: char = 'a'; // character variable
+let f: fn(int) -> int = |x| x + 1; // function variable
+let opt: Option<int> = Some(42); // optional value that can be Some(value) or None
+let res: Result<int, str> = Ok(42); // result value that can be Ok(value) or Err(error)
+
+// Comparison operands
+5 > 3; // greater than operator
+5 < 3; // less than operator
+5 == 3; // equal to operator
+5 != 3; // not equal to operator
+true && false; // logical and operator
+true || false; // logical or operator
+!true; // logical not operator
+
+// Control flow statements
+if x > 0 {
+  print("x is positive"); // print statement
+} else if x == 0 {
+  print("x is zero");
+} else {
+  print("x is negative");
+}
+
+match x {
+0 => print("x is zero"), // pattern matching with value
+1..=5 => print("x is between 1 and 5"), // pattern matching with range
+_ => print("x is something else"), // pattern matching with wildcard
+}
+
+// Looping statements
+for i in 0..5 { // inclusive range from 0 to 5
+  print(i);
+}
+
+// More looping statements
+for (i, item) in arr.iter().enumerate() { // iteration over an array with index and item
+print(i + ": " + item);
+}
+
+for i in (0..5).step_by(2) { // iteration with a step value
+print(i);
+}
+
+loop { // infinite loop
+// do something
+break; // break out of the loop
+}
+
+
+
+while y < 10.0 {
+  y = y * 2.0;
+}
+
+// Functions
+fn greet(name: str) -> str { // function declaration with input and return type
+  return "Hello, " + name + "!"; // string concatenation
+}
+
+let result: str = greet("John"); // function call with argument and return value
+
+// Data structures
+struct Point { // struct declaration
+  x: int,
+  y: int,
+}
+
+// More variable declarations
+let c: char = 'a'; // character variable
+let f: fn(int) -> int = |x| x + 1; // function variable
+let opt: Option<int> = Some(42); // optional value that can be Some(value) or None
+let res: Result<int, str> = Ok(42); // result value that can be Ok(value) or Err(error)
+
+// More control flow statements
+if let Some(value) = opt { // if let statement to handle optional values
+print("Value is: " + value);
+} else {
+print("Value is not available");
+}
+
+while let Some(value) = iter.next() { // while let loop to handle iterators
+print("Value is: " + value);
+}
+
+// More looping statements
+for (i, item) in arr.iter().enumerate() { // iteration over an array with index and item
+print(i + ": " + item);
+}
+
+for i in (0..5).step_by(2) { // iteration with a step value
+print(i);
+}
+
+// More data structures
+struct Rectangle {
+x: int,
+y: int,
+width: int,
+height: int,
+}
+
+impl Rectangle { // implementation block for methods on a struct
+	fn area(&self) -> int { // method that takes a reference to self
+		return self.width * self.height;
+	}
+}
+
+let p: Point = Point { x: 1, y: 2 }; // struct instantiation
+
+// Enumerations
+enum Color { // enum declaration
+  Red,
+  Green,
+  Blue,
+}
+
+enum Result<T, E> { // generic enum with type parameters
+Ok(T),
+Err(E),
+}
+
+let c: Color = Color::Green; // enum variant assignment
+
+// Error handling
+fn do_something() -> Result<int, str> { // function that can return either an int or an error message
+  // do something
+}
+
+let result = do_something();
+match result {
+  Ok(value) => print("Result: " + value),
+  Err(error) => print("Error: " + error),
+}
+
+// When you see # right code that implements what ever comes after it
+# print number 1 through 5;
+
+// Gettin input from user
+input("text")
