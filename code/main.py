@@ -1,7 +1,7 @@
 import openai
 import sys
 
-openai.api_key = "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"
+openai.api_key = "sk-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"
 
 def read_data_from_file(input_file):
 	try:
