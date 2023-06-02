@@ -1,10 +1,10 @@
 from common_functions import *
 import sys
 
-def conversation_prep_first(pseudo = "", language = ""):
+def conversation_prep_first(code = "", language = ""):
 	conversation = [
 		{"role": "system", "content": f"You are an assistant who's job it is to help me debugging code in {language}, walking me through setting up the debugging in VS code and suggesting different things that I should add to my code"},
-		{"role": "user", "content":	f'here is the code that I need debugging:\n {pseudo}'}
+		{"role": "user", "content":	f'here is the code that I need debugging:\n {code}'}
 	]
 	return conversation
 
@@ -25,7 +25,7 @@ def setting_up_debbugging():
 def isolating(conversation):
 	conversation.append({
 		"role": 'user',
-		"content": "How can I isolate the bug so that I know what to fix. The bug is "
+		"content": f"How can I isolate the bug so that I know what to fix. The bug is {input('what is the bug: ')}"
 	})
 
 	response = get_response(conversation)
