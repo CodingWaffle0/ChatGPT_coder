@@ -1,5 +1,4 @@
 from common_functions import *
-import sys
 
 def conversation_prep_first(code = "", language = ""):
 	conversation = [
@@ -8,7 +7,7 @@ def conversation_prep_first(code = "", language = ""):
 	]
 	return conversation
 
-def setting_up_debbugging():
+def setting_up_debbugging(filename, lan):
 	conversation = conversation_prep_first(read_data_from_file(filename), lan)
 	response = get_response(conversation)
 
@@ -60,19 +59,12 @@ def testing(conversation):
 	print('\n\n' + str(response['usage']))
 
 
-if __name__ == "__main__":
-	if len(sys.argv) == 3:
-		filename = sys.argv[1]
-		lan = sys.argv[2]
+def main(filename, lan):
+	conversation = setting_up_debbugging(filename, lan)
 
-		conversation = setting_up_debbugging()
+	if input("would you like help isolating the problem (nothing mean no)") != '':
+		isolating(conversation)
 
-		if input("would you like help isolating the problem (nothing mean no)") != '':
-			isolating(conversation)
+	fixing_bugs(conversation)
 
-		fixing_bugs(conversation)
-
-		testing(conversation)
-
-	else:
-		print("Please provide two file names as arguments.")
+	testing(conversation)

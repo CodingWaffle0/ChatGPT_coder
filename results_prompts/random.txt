@@ -1,9 +1,0 @@
-impl Solution{
-	pub fn is_palindrom(x: i32) --> bool{
-		#split x down the middle discarding the middle digit if odd in y and z;
-		if y == z{
-			return true;
-		}
-		return false;
-	}
-}

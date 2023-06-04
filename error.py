@@ -1,5 +1,4 @@
 from common_functions import *
-import sys
 
 def conversation_prep(code = "", error = "", language = ""):
 	conversation = [
@@ -8,7 +7,7 @@ def conversation_prep(code = "", error = "", language = ""):
 	]
 	return conversation
 
-def suggestion():
+def suggestion(filename, lan):
 	conversation = conversation_prep(read_data_from_file(filename), input("what is the error message: "), lan)
 	response = get_response(conversation)
 
@@ -42,14 +41,8 @@ def talking(conversation):
     	    'content': response['choices'][-1]['message']['content']
     	})
 
-if __name__ == "__main__":
-	if len(sys.argv) == 3:
-		filename = sys.argv[1]
-		lan = sys.argv[2]
+def main(filename, lan):
 
-		conversation = suggestion()
+	conversation = suggestion(filename, lan)
 
-		talking(conversation)
-
-	else:
-		print("Please provide two file names as arguments.")
+	talking(conversation)

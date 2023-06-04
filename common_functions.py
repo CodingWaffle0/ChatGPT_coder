@@ -1,9 +1,7 @@
 import openai
 
-openai.api_key = "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"
-
-
 def get_response(conversation):
+	openai.api_key = "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"
 	return openai.ChatCompletion.create(
 	model="gpt-3.5-turbo",
 	messages=conversation
