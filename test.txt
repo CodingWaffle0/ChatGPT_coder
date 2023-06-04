@@ -1,0 +1,15 @@
+#from prompt_toolkit.shortcuts import checkboxlist_dialog
+
+fn checkbox(promts: Vec<str>) -> Vec<bool>{
+	result: Vec<str> = checkboxlist_dialog(
+		title = "whats wronge",
+		text = "Select the desired options (use space to toggle),
+		values=promts,
+	).run()
+
+
+	// if the box was sellected then the promt will be there so just look for the name of the promt, if it's true
+	# got theuw promts and turn it into a bool based on if it got checked off
+
+	return promts
+}

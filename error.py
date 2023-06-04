@@ -8,7 +8,7 @@ def conversation_prep(code = "", error = "", language = ""):
 	return conversation
 
 def suggestion(filename, lan):
-	conversation = conversation_prep(read_data_from_file(filename), input("what is the error message: "), lan)
+	conversation = conversation_prep(read_data_from_file(filename), cool_input("Error","What is the error message"), lan)
 	response = get_response(conversation)
 
 	print(response['choices'][-1]['message']['content'])
@@ -23,12 +23,12 @@ def suggestion(filename, lan):
 
 def talking(conversation):
 	while True:
-		if input('do you want to talk? (nothing means yes): ') != '':
+		if yes_no("Do you want to talk?"):
 			break
 
 		conversation.append({
 			"role": 'user',
-			"content": input('')
+			"content": cool_input("Error", "What do you want to say?")
 		})
 
 		response = get_response(conversation)

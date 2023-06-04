@@ -1,22 +1,24 @@
 # Import necessary modules
 import learning, generate, error, debugging, advancement
+from common_functions import checkbox, cool_input, yes_no
 import os
 
 
 def main():
-    input_str, output_str = input("Enter input: "), input("Enter output: ")
-    lan = input("Enter language: ")
-
-    if not validate_file_exists(input_str) or not validate_file_exists(output_str):
-        return 1
-
     # generate a checkbox, if they want help learning
-    if True: # update with checkbox value
+    if yes_no("Do you want to learn?"): # update with checkbox value
         learning.main()
 
-    generate.main(input_str, output_str, lan)
-  
-    bugs, errors = True, True # update with checkbox values
+    input_str, output_str = cool_input("Enter file name", "Input: "), cool_input("Enter file name", "Output: ")
+    lan = cool_input("Enter coding Language", "")
+
+    if not validate_file_exists(input_str):
+        return 1
+
+    if yes_no("Do you want to generate?"):
+        generate.main(input_str, output_str, lan)
+
+    bugs, errors = checkbox("whats wrong", ["Is there any errors?", "Is there any bugs"]) # update with checkbox values
   
     if errors:
         error.main(output_str, lan)

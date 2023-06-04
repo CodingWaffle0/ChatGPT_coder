@@ -24,7 +24,7 @@ def setting_up_debbugging(filename, lan):
 def isolating(conversation):
 	conversation.append({
 		"role": 'user',
-		"content": f"How can I isolate the bug so that I know what to fix. The bug is {input('what is the bug: ')}"
+		"content": f"How can I isolate the bug so that I know what to fix. The bug is {cool_input('Debugging', 'What is the bug')}"
 	})
 
 	response = get_response(conversation)
@@ -36,7 +36,7 @@ def fixing_bugs(conversation):
 	while True:
 		conversation.append({
 			"role": 'user',
-			"content": f"I have found that when doing, {input('when do you get problems: ')} I get {input('what art he problems: ')}. I think that it might be caused by {input('what might cause this: ')}"
+			"content": f"I have found that when doing, {cool_input('Debugging','When do you get problems')} I get {cool_input('Debugging', 'What is the problems')}. I think that it might be caused by {cool_input('Debugging', 'What might cause this')}"
 		})
 
 		response = get_response(conversation)
@@ -44,7 +44,7 @@ def fixing_bugs(conversation):
 		print(response['choices'][-1]['message']['content'])
 		print('\n\n' + str(response['usage']))
 
-		if input('would you like to end (nothing to end): ') == '':
+		if yes_no('Would you like to end'):
 			break
 
 def testing(conversation):
@@ -62,7 +62,7 @@ def testing(conversation):
 def main(filename, lan):
 	conversation = setting_up_debbugging(filename, lan)
 
-	if input("would you like help isolating the problem (nothing mean no)") != '':
+	if yes_no("Would you like help isolating the problem"):
 		isolating(conversation)
 
 	fixing_bugs(conversation)
