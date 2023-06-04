@@ -1,7 +1,11 @@
 import openai
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 def get_response(conversation):
-	openai.api_key = "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"
+	openai.api_key = config.get('API', 'key')
 	return openai.ChatCompletion.create(
 	model="gpt-3.5-turbo",
 	messages=conversation
